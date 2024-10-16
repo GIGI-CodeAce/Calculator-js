@@ -1,0 +1,41 @@
+
+
+.calculator{
+    width: 250px ;
+    text-align: center;
+    background-color: black;
+    padding: 5px;
+    border-radius: 10px;
+    user-select: none;
+    font-size: 17px;
+}
+.calculator .keys .btn {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    place-content: center;
+    background-color: gray;
+    margin: 1px;
+    border-radius: 50%;
+}
+.calculator .keys p:hover{
+    cursor: pointer;
+}
+.calculator .keys p:nth-child(4n),
+ p:nth-child(1), p:nth-child(2), p:nth-child(3){
+    background-color: orange;
+}
+
+.calculator .keys p:active{
+    background-color: hsl(0, 0%, 70%);
+}
+#display{
+    width: 220px;
+    margin: 5px;
+    padding: 5px 0px 5px 0px;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    font-size: 17px;
+}

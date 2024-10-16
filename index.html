@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="calculator">
+        <input value="" placeholder="0" id="display" readonly>
+        <div class="keys">
+            <p class="btn">C</p>
+            <p class="btn">X</p>
+            <p class="btn">%</p>
+            <p class="btn">÷</p>
+
+            <p class="btn">7</p>
+            <p class="btn">8</p>
+            <p class="btn">9</p>
+            <p class="btn">x</p>
+
+            <p class="btn">4</p>
+            <p class="btn">5</p>
+            <p class="btn">6</p>
+            <p class="btn">-</p>
+
+            <p class="btn">1</p>
+            <p class="btn">2</p>
+            <p class="btn">3</p>
+            <p class="btn">+</p>
+
+            <p class="btn">0</p>
+            <p class="btn">=</p>
+        </div>
+    </div>
+
+    <script>
+    const buttons = document.querySelectorAll('.btn');
+    const display = document.getElementById('display');
+    let input = '';
+
+    function Calculate(){
+        try {
+            input = eval(input.replace('x', '*').replace('÷', '/'))
+            display.value = input
+            } catch (error) {
+                display.value = 'Error'
+        }
+        input = ''
+    }
+
+    document.addEventListener('keyup',(e)=>{
+        if(e.key === 'Enter'){
+            Calculate()
+        }
+    })
+
+    buttons.forEach(button =>{
+        button.addEventListener('click',()=>{
+            let buttonText = button.textContent
+
+            switch (buttonText) {
+                case 'C':
+                    input = ''
+                    display.value = input
+                    break;
+                case 'X':
+                    input = input.slice(0,-1)
+                    display.value = input
+                    break;
+                case '=':
+                    Calculate()
+                    break;
+            
+                default:
+                    input += buttonText
+                    display.value = input
+                    break;
+            }
+        })
+    })
+
+    </script>
+
+</body>
+</html>
